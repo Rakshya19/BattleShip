@@ -15,16 +15,25 @@ namespace BattleShip.Model.Enum
             Submarine,
             Destroyer
         }
-        public enum BoardCellstatus
+        public enum ShipOrientation
         {
-            Unoccupied,
-            Occupied
+            Horizontal,
+            Vertical
         }
 
-        public enum Shipstatus
+        public enum ShipAndBoardstatus
         {
             Hit,
-            Miss
+            Miss,
+            ShipSunk,
+            GameOver
+
+        }
+        public enum LevelType
+        {
+            Level1 = 1,
+            Level2 = 2,
+            Level3 = 3
         }
 
     }

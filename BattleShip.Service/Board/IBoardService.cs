@@ -1,11 +1,12 @@
 ﻿
 using BattleShip.Model;
+using System.Collections.Generic;
 
 namespace BattleShip.Service.Board
 {
     public interface IBoardService
     {
-        BoardModel CreateBoard(int rows, int columns);
+        List<BoardModel> CreateBoard();
         
     }
 }

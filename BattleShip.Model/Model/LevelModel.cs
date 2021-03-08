@@ -6,9 +6,11 @@ using static BattleShip.Model.Enum.Enum;
 
 namespace BattleShip.Model
 {
-    public abstract class ShipModel
+    public abstract class LevelModel
     {
-        public ShipType shipType { get; set; }
-        public int size { get; set; }
+        public int Rows { get; set; }
+        public int Columns { get; set; }
     }
+        
 }
+

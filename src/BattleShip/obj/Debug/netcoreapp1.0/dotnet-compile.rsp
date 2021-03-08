@@ -1,5 +1,5 @@
---temp-output:C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip\obj\Debug\netcoreapp1.0\
---out:C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip\bin\Debug\netcoreapp1.0\BattleShip.dll
+--temp-output:C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip\obj\Debug\netcoreapp1.0\
+--out:C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip\bin\Debug\netcoreapp1.0\BattleShip.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -174,10 +174,10 @@
 --reference:C:\Users\merak\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\merak\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\merak\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---reference:C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\BattleShip.Model\bin\Debug\netstandard1.6\BattleShip.Model.dll
---reference:C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\BattleShip.Service\bin\Debug\netstandard1.6\BattleShip.Service.dll
---resource:"C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip\obj\Debug\netcoreapp1.0\BattleShipdotnet-compile.deps.json",BattleShip.deps.json
-C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip\Program.cs
-C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip\Startup.cs
-C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip\Controllers\HomeController.cs
-C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip\Controllers\ValuesController.cs
+--reference:C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\bin\Debug\netstandard1.6\BattleShip.Model.dll
+--reference:C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Service\bin\Debug\netstandard1.6\BattleShip.Service.dll
+--resource:"C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip\obj\Debug\netcoreapp1.0\BattleShipdotnet-compile.deps.json",BattleShip.deps.json
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip\Program.cs
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip\Startup.cs
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip\Controllers\HomeController.cs
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip\Controllers\ValuesController.cs
