@@ -55,10 +55,13 @@
 --reference:C:\Users\merak\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\merak\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\merak\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Level1.cs
 C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Enum\Enum.cs
 C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Model\BoardModel.cs
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Model\BoardShipViewModel.cs
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Model\CarrierModel.cs
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Model\Dimensions.cs
 C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Model\Level1.cs
 C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Model\LevelModel.cs
 C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Model\ShipModel.cs
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Model\ShipViewModel.cs
 C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\BattleShip.Model\Properties\AssemblyInfo.cs

@@ -8,14 +8,70 @@ using BattleShip.Model.Model;
 
 namespace BattleShip.Service.Ship
 {
-    public class ShipService: IShipService
+    public class ShipService : IShipService
     {
+        public ShipModel CreateShip(ShipType shipType)
+        {
+            try
+            {
+                ShipModel model = new ShipModel();
+
+                if (shipType == ShipType.BattleShip)
+                {
+                    model.shipType = ShipType.BattleShip;
+                    model.size = 4;
+                    return model;
+
+                }
+                if (shipType == ShipType.Carrier)
+                {
+                    model.shipType = ShipType.Carrier;
+                    model.size = 5;
+                    return model;
+
+                }
+                if (shipType == ShipType.Cruiser)
+                {
+                    model.shipType = ShipType.Cruiser;
+                    model.size = 3;
+                    return model;
+
+                }
+                if (shipType == ShipType.Destroyer)
+                {
+                    model.shipType = ShipType.Destroyer;
+                    model.size = 3;
+                    return model;
+
+                }
+                if (shipType == ShipType.Submarine)
+                {
+                    model.shipType = ShipType.Submarine;
+                    model.size = 1;
+                    return model;
+
+                }
+                throw new Exception("ShipType doesnot exist. Please select either " + ShipType.Carrier + " or " + ShipType.BattleShip + " or " + ShipType.Cruiser + " or " + ShipType.Destroyer + " or " + ShipType.Submarine);
+            }
+
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error in creating ship :"+ ex.Message);
+            }
+        }
+    
+           
+
+
        
         public BoardShipViewModel AddShipToBoard(ShipModel ship, ShipOrientation shipOrientation,int row, int column,List<BoardModel> ListBoardModel)
         {
-            //here row and columns are cell where we want the ship to be positioned
+            try
+            {
+                //here row and columns are cell where we want the ship to be positioned
 
-            CheckBoardOccupied(ship, shipOrientation, row, column, ListBoardModel);
+                CheckBoardOccupied(ship, shipOrientation, row, column, ListBoardModel);
 
             BoardShipViewModel boardShipViewModel = new BoardShipViewModel();
 
@@ -65,6 +121,12 @@ namespace BattleShip.Service.Ship
             boardShipViewModel.ListShipViewModel = ListshipViewModel;
 
             return boardShipViewModel;
+        }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error in adding ship to board :" + ex.Message);
+            }
         }
 
         private void CheckBoardOccupied(ShipModel ship,ShipOrientation shipOrientation, int row, int column, List<BoardModel> ListBoardModel)
@@ -122,6 +184,10 @@ namespace BattleShip.Service.Ship
         }
         public ShipAndBoardstatus AttackShip(int row, int column, List<BoardModel> ListBoardModel, List<ShipViewModel> shipViewModel)
         {
+            if(row>10 || column >10)
+            {
+                throw new IndexOutOfRangeException("Attack cannot be out of boards!!");
+            }
 
            var data = shipViewModel.Where(x => x.Row == row && x.Column == column).FirstOrDefault();
             if(data != null)

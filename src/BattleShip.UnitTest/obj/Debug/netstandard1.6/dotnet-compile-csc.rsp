@@ -8,8 +8,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip.UnitTest\obj\Debug\netstandard1.6\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip.UnitTest\bin\Debug\netstandard1.6\BattleShip.UnitTest.dll"
+"C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip.UnitTest\obj\Debug\netstandard1.6\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip.UnitTest\bin\Debug\netstandard1.6\BattleShip.UnitTest.dll"
 -r:"C:\Users\merak\.nuget\packages\Microsoft.Win32.Primitives\4.0.1\ref\netstandard1.3\Microsoft.Win32.Primitives.dll"
 -r:"C:\Users\merak\.nuget\packages\System.AppContext\4.1.0\ref\netstandard1.6\System.AppContext.dll"
 -r:"C:\Users\merak\.nuget\packages\System.Collections\4.0.11\ref\netstandard1.3\System.Collections.dll"
@@ -53,5 +53,5 @@
 -r:"C:\Users\merak\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\merak\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\merak\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
-"C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip.UnitTest\Class1.cs"
-"C:\Users\merak\documents\visual studio 2015\Projects\BattleShip\src\BattleShip.UnitTest\Properties\AssemblyInfo.cs"
+"C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip.UnitTest\Class1.cs"
+"C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip\src\BattleShip.UnitTest\Properties\AssemblyInfo.cs"

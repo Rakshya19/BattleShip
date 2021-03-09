@@ -50,7 +50,10 @@ namespace BattleShip
 
             app.UseApplicationInsightsExceptionTelemetry();
 
-            app.UseMvc();
+            app.UseMvc(routes=> {
+                routes.MapRoute("default", "{controller}/{action}");
+                }
+            );
         }
     }
 }

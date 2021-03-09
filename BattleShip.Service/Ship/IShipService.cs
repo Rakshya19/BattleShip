@@ -11,8 +11,8 @@ namespace BattleShip.Service.Ship
     public interface IShipService
 
     {
+        ShipModel CreateShip(ShipType shipType);
         BoardShipViewModel AddShipToBoard(ShipModel ship, ShipOrientation shipOrientation, int row, int column, List<BoardModel> ListBoardModel);
-        void CheckBoardOccupied(ShipModel ship, ShipOrientation shipOrientation, int row, int column, List<BoardModel> ListBoardModel);
         ShipAndBoardstatus AttackShip(int row, int column, List<BoardModel> ListBoardModel, List<ShipViewModel> shipViewModel);
     }
 }

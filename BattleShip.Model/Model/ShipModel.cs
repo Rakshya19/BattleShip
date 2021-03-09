@@ -6,7 +6,7 @@ using static BattleShip.Model.Enum.Enum;
 
 namespace BattleShip.Model
 {
-    public abstract class ShipModel
+    public class ShipModel
     {
         public ShipType shipType { get; set; }
         public int size { get; set; }
