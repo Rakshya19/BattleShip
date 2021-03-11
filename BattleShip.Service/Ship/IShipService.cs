@@ -12,7 +12,7 @@ namespace BattleShip.Service.Ship
 
     {
         ShipModel CreateShip(string shipType);
-        BoardShipViewModel AddShipToBoard(ShipModel ship, string shipOrientation, int row, int column, List<BoardModel> ListBoardModel);
+        BoardShipViewModel PlaceShipInBoard(ShipModel ship, string shipOrientation, int row, int column, List<BoardModel> ListBoardModel);
         ShipAndBoardstatus AttackShip(int row, int column, List<BoardModel> ListBoardModel, List<ShipViewModel> shipViewModel);
         ShipModel GetShip(string shipType);
     }
