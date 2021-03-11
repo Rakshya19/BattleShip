@@ -94,13 +94,13 @@ namespace BattleShip.Service.Ship
 
                 if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
                 {
-                    ShipViewModel model = new ShipViewModel();
+                    
                     for (int i = 0; i < ship.size; i++)
                     {
                         var data = ListBoardModel.Where(x => x.Row == row + i && x.Column == column).FirstOrDefault();
                         {
                             data.Occupied = true;
-
+                            ShipViewModel model = new ShipViewModel();
                             model.Row = row + i;
                             model.Column = column;
                             model.Hit = false;

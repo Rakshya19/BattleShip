@@ -38,13 +38,13 @@ namespace BattleShip.Web.Controllers
                 return Json(new { status = "Error", message = "Failed to create "+shipType+" Ship!!" });
             }
         }
-        public ActionResult  PlaceShipInBoard(string shipType, string shipOrientation, int ShipStartingRow=1, int ShipStartingColumn=1)
+        public ActionResult  PlaceShipInBoard(string shipType, string shipOrientation, int shipRow=1, int shipColumn=1)
         {
             var board = _boardService.CreateBoard();  //Actually we need to get the board by passing the boardID in the parameter.Since we do not have database, I am creating the board.
 
             var ship = _shipService.GetShip(shipType);
 
-            var data = _shipService.PlaceShipInBoard(ship, shipOrientation, ShipStartingRow, ShipStartingColumn, board);
+            var data = _shipService.PlaceShipInBoard(ship, shipOrientation, shipRow, shipColumn, board);
             if (data != null)
             {
                 var result = new { Result = data, Message = "Ship is successfully added to the board" };
@@ -62,8 +62,8 @@ namespace BattleShip.Web.Controllers
 
         // shipInBoard is the cells of ship which is placed in the board and which is attacked.
         //This attacked ship result can be get by passing the row and column parameter to a function and get the ship if it is in the database.
-[HttpPost]
-        public ActionResult AttackOneShipOnBoard(string shipType,string shipOrientation,int shipRow,int shipColumn, int attackRow, int attakColumn)
+     
+        public ActionResult AttackOneShipOnBoard(string shipType,string shipOrientation,int shipRow=1,int shipColumn=1, int attackRow=1, int attackColumn=1)
         {
             var board = _boardService.CreateBoard();
 
@@ -71,7 +71,7 @@ namespace BattleShip.Web.Controllers
 
             var placeShipInBoard = _shipService.PlaceShipInBoard(ship, shipOrientation, shipRow, shipColumn, board);
 
-            var data = _shipService.AttackShip(attackRow, attakColumn, placeShipInBoard.ListBoardModel, placeShipInBoard.ListShipViewModel);
+            var data = _shipService.AttackShip(attackRow, attackColumn, placeShipInBoard.ListBoardModel, placeShipInBoard.ListShipViewModel);
             var result = Enum.GetName(typeof(ShipAndBoardstatus), data);
 
 
