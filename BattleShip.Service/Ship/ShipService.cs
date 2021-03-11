@@ -79,7 +79,7 @@ namespace BattleShip.Service.Ship
         }
 
 
-        public BoardShipViewModel AddShipToBoard(ShipModel ship, string shipOrientation, int row, int column, List<BoardModel> ListBoardModel)
+        public BoardShipViewModel PlaceShipInBoard(ShipModel ship, string shipOrientation, int row, int column, List<BoardModel> ListBoardModel)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace BattleShip.Service.Ship
 
                 List<ShipViewModel> ListshipViewModel = new List<ShipViewModel>();
 
-                if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Horizontal).ToLower())
+                if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
                 {
                     ShipViewModel model = new ShipViewModel();
                     for (int i = 0; i < ship.size; i++)
@@ -110,7 +110,7 @@ namespace BattleShip.Service.Ship
 
                     }
                 }
-                if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
+                if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Horizontal).ToLower())
                 {
 
                     for (int i = 0; i < ship.size; i++)
@@ -152,21 +152,21 @@ namespace BattleShip.Service.Ship
             var errormessage2 = "Cell is already occupied. Place the ship in another position!!";
 
             int boardSize = 10;
-            if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Horizontal).ToLower())
+            if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
             {
                 if (row + ship.size - 1 > boardSize)
                 {
                     throw new IndexOutOfRangeException(errormessage1);
                 }
             }
-            if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
+            if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Horizontal).ToLower())
             {
                 if (column + ship.size - 1 > boardSize)
                 {
                     throw new IndexOutOfRangeException(errormessage1);
                 }
             }
-            if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Horizontal).ToLower())
+            if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
             {
                 for (int i = 0; i < ship.size; i++)
                 {
@@ -180,7 +180,7 @@ namespace BattleShip.Service.Ship
                     }
                 }
             }
-            if (shipOrientation == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
+            if (shipOrientation == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Horizontal).ToLower())
             {
                 for (int i = 0; i < ship.size - 1; i++)
                 {

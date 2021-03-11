@@ -38,11 +38,11 @@ namespace BattleShip.Web.Controllers
                 return Json(new { status = "Error", message = "Failed to create "+shipType+" Ship!!" });
             }
         }
-        public ActionResult  AddShipToBoard(string shipType, string shipOrientation, int row=1, int column=1)
+        public ActionResult PlaceShipInBoard(string shipType, string shipOrientation, int shipRow=1, int shipColumn=1)
         {
             var board = _boardService.CreateBoard();  //Actually we need to get the board by passing the boardID in the parameter.Since we do not have database, I am creating the board.
             var ship = _shipService.GetShip(shipType);
-            var data = _shipService.AddShipToBoard(ship, shipOrientation, row, column, board);
+            var data = _shipService.PlaceShipInBoard(ship, shipOrientation, shipRow, shipColumn, board);
             if (data != null)
             {
                 var result = new { Result = data, Message = "Ship is successfully added to the board" };
