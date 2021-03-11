@@ -1,0 +1,7 @@
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Service\bin\Debug\BattleShip.Service.dll
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Service\bin\Debug\BattleShip.Service.pdb
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Service\bin\Debug\BattleShip.Model.dll
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Service\bin\Debug\BattleShip.Model.pdb
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Service\obj\Debug\BattleShip.Service.csprojResolveAssemblyReference.cache
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Service\obj\Debug\BattleShip.Service.dll
+C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Service\obj\Debug\BattleShip.Service.pdb

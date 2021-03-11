@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BattleShip.Model.Enum
@@ -9,31 +11,36 @@ namespace BattleShip.Model.Enum
     {
         public enum ShipType
         {
+            [Description("Carrier")]
             Carrier,
+            [Description("BattleShip")]
             BattleShip,
-            Cruiser,
+            [Description("Cruiser")]
+            Cruiser,           
+            [Description("Destroyer")]
+            Destroyer,
+           [Description("Submarine")]
             Submarine,
-            Destroyer
         }
         public enum ShipOrientation
         {
+            [Description("Horizontal")]
             Horizontal,
+            [Description("Vertical")]
             Vertical
         }
 
         public enum ShipAndBoardstatus
         {
+            [Description("Hit")]
             Hit,
+            [Description("Miss")]
             Miss,
+            [Description("Ship is Sunk")]
             ShipSunk,
+            [Description("Game Over")]
             GameOver
 
-        }
-        public enum LevelType
-        {
-            Level1 = 1,
-            Level2 = 2,
-            Level3 = 3
         }
 
     }
