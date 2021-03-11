@@ -82,9 +82,9 @@ namespace BattleShip.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult AttackShip(int attackRow, int attakColumn, List<BoardModel> boardCellList, List<ShipViewModel> shipInBoard)
+        public ActionResult AttackShip(int attackRow, int attackColumn, List<BoardModel> boardCellList, List<ShipViewModel> shipInBoard)
         {
-            var data = _shipService.AttackShip(attackRow, attakColumn, boardCellList, shipInBoard);
+            var data = _shipService.AttackShip(attackRow, attackColumn, boardCellList, shipInBoard);
             var result = Enum.GetName(typeof(ShipAndBoardstatus), data);
 
 
