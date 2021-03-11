@@ -83,6 +83,7 @@ namespace BattleShip.Service.Ship
         {
             try
             {
+              
                 //here row and columns are cell where we want the ship to be positioned
 
                 CheckBoardOccupied(ship, shipOrientation, row, column, ListBoardModel);
