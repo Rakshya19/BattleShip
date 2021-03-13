@@ -1,6 +1,6 @@
 # BattleShip 
 
-This project is created in visual studio 2019 community version. All the methods are tested on postman.
+This project is created in visual studio 2019 community version. All the methods are tested on swagger.
 
 ## Create Board
 Board is created with 10 rows and 10 columns
