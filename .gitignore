@@ -1,9 +1,5 @@
-BattleShip.Model/bin/
-BattleShip.Model/obj/
-BattleShip.Service/obj/
-BattleShip.Service/bin/
-BattleShip.webAPI/obj/
-BattleShip.webAPI/bin/
+bin
+obj
 BattleShip.webAPI/Properties/PublishProfiles/
 .suo
 .vs/BattleShip.webAPI/DesignTimeBuild/
