@@ -1,26 +1,19 @@
 ﻿using BattleShip.Model.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BattleShip.Service.Board
 {
     public class BoardService : IBoardService
     {
-
-        public List<BoardModel> CreateBoard()
+        public List<BoardModel> CreateBoard( int rows, int columns)
         {
 
             try
             {
-                //Build board with 10 rows and 10 column. 
-                //Can also be made dynamic by passing rows and columns as parameter to CreateBoard method if required. 
-                //Since the task was to make  10 rows and 10 columns, I made it static 
-
-                int rows = 10;
-                int columns = 10;
 
                 List<BoardModel> boardModelList = new List<BoardModel>();
 
@@ -28,10 +21,12 @@ namespace BattleShip.Service.Board
                 {
                     for (int j = 1; j <= columns; j++)
                     {
-                        BoardModel boardModel = new BoardModel();
-                        boardModel.Row = i;
-                        boardModel.Column = j;
-                        boardModel.Occupied = false;
+                        BoardModel boardModel = new BoardModel()
+                        {
+                            Row = i,
+                            Column = j,
+                            Occupied = false
+                        };
 
                         boardModelList.Add(boardModel);
                     }
@@ -46,6 +41,23 @@ namespace BattleShip.Service.Board
                 throw new Exception("Sorry!! Error has encountered while creating the board: " + ex.Message);
             }
 
+            
+        }
+        public List<BoardModel> GetBoard()
+        {
+            try
+            {
+                var boardDetails = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "board.json");
+                var board = System.IO.File.ReadAllText(boardDetails);
+                var boardModelList = JsonConvert.DeserializeObject<List<BoardModel>>(board);
+                return boardModelList;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error in fetching board!!"+ex.Message);
+            }
+            
         }
     }
 }

@@ -1,0 +1,9 @@
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\bin\Debug\netcoreapp3.1\BattleShip.Model.deps.json
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\bin\Debug\netcoreapp3.1\BattleShip.Model.dll
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\bin\Debug\netcoreapp3.1\BattleShip.Model.pdb
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\obj\Debug\netcoreapp3.1\BattleShip.Model.csprojAssemblyReference.cache
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\obj\Debug\netcoreapp3.1\BattleShip.Model.AssemblyInfoInputs.cache
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\obj\Debug\netcoreapp3.1\BattleShip.Model.AssemblyInfo.cs
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\obj\Debug\netcoreapp3.1\BattleShip.Model.csproj.CoreCompileInputs.cache
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\obj\Debug\netcoreapp3.1\BattleShip.Model.dll
+C:\Users\merak\source\repos\BattleShip.webAPI\BattleShip.Model\obj\Debug\netcoreapp3.1\BattleShip.Model.pdb

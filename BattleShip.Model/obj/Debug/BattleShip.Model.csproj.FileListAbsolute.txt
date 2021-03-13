@@ -1,5 +1,0 @@
-C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Model\bin\Debug\BattleShip.Model.dll
-C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Model\bin\Debug\BattleShip.Model.pdb
-C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Model\obj\Debug\BattleShip.Model.dll
-C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Model\obj\Debug\BattleShip.Model.pdb
-C:\Users\merak\Documents\Visual Studio 2015\Projects\BattleShip.Web\BattleShip.Model\obj\Debug\BattleShip.Model.csprojResolveAssemblyReference.cache

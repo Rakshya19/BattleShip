@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BattleShip.Model.Enum
 {
@@ -16,10 +14,10 @@ namespace BattleShip.Model.Enum
             [Description("BattleShip")]
             BattleShip,
             [Description("Cruiser")]
-            Cruiser,           
+            Cruiser,
             [Description("Destroyer")]
             Destroyer,
-           [Description("Submarine")]
+            [Description("Submarine")]
             Submarine,
         }
         public enum ShipOrientation

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "peT8gGyYEmIav1nC6BeA/eCgkMwVYZDY33LUITbXSx0cdsrOQNt8zcqZEF9nihtKYSMz0Fs9Lx4Y4mI+3z2xUg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\merak\\source\\repos\\BattleShip.webAPI\\BattleShip.Service\\BattleShip.Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\merak\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
