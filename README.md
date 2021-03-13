@@ -4,7 +4,8 @@ This project is created in visual studio 2019 community version. All the methods
 
 ## Create Board
 Board is created with 10 rows and 10 columns
-LocalUrl: http://localhost:4222/Board/CreateBoard
+LocalUrl:https://localhost:44398/swagger/index.html#/Board/Board_CreateBoard
+HostingUrl: http://rakshyabhattarai-001-site1.itempurl.com/swagger/index.html#/Board/Board_CreateBoard
 
 ## CreateShip
 CreateShip requires ShipType as parameter. It takes 5 ship types Carrier, BattleShip, Cruiser, Destroyer and Submarine.
