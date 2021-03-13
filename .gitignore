@@ -1,0 +1,13 @@
+BattleShip.Model/bin/
+BattleShip.Model/obj/
+BattleShip.Service/obj/
+BattleShip.Service/bin/
+BattleShip.webAPI/obj/
+BattleShip.webAPI/bin/
+BattleShip.webAPI/Properties/PublishProfiles/
+.suo
+.vs/BattleShip.webAPI/DesignTimeBuild/
+BattleShip.webAPI/.config/
+
+
+

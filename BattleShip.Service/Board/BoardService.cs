@@ -1,4 +1,5 @@
 ﻿using BattleShip.Model.Model;
+using BattleShip.Service.File;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,13 @@ namespace BattleShip.Service.Board
 {
     public class BoardService : IBoardService
     {
-        public List<BoardModel> CreateBoard( int rows, int columns)
+        private readonly IFileService _fileService;
+        public BoardService(IFileService fileService)
+        {
+            _fileService = fileService;
+        }
+
+        public List<BoardModel> CreateBoard(int rows, int columns)
         {
 
             try
@@ -31,6 +38,8 @@ namespace BattleShip.Service.Board
                         boardModelList.Add(boardModel);
                     }
                 }
+                _fileService.SetFileContent("board.json", JsonConvert.SerializeObject(boardModelList));
+
                 return boardModelList;
 
 
@@ -41,23 +50,23 @@ namespace BattleShip.Service.Board
                 throw new Exception("Sorry!! Error has encountered while creating the board: " + ex.Message);
             }
 
-            
+
         }
         public List<BoardModel> GetBoard()
         {
             try
             {
-                var boardDetails = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "board.json");
-                var board = System.IO.File.ReadAllText(boardDetails);
+                var board=_fileService.GetFileContent("board.json");
+
                 var boardModelList = JsonConvert.DeserializeObject<List<BoardModel>>(board);
                 return boardModelList;
             }
             catch (Exception ex)
             {
 
-                throw new Exception("Error in fetching board!!"+ex.Message);
+                throw new Exception("Error in fetching board!!" + ex.Message);
             }
-            
+
         }
     }
 }

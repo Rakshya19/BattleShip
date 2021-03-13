@@ -1,4 +1,5 @@
 ﻿using BattleShip.Model.Model;
+using BattleShip.Service.File;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,20 @@ namespace BattleShip.Service.Ship
 {
     public class ShipService : IShipService
     {
+        private readonly IFileService _fileService;
+        public ShipService(IFileService fileService)
+        {
+            _fileService = fileService;
+        }
         public ShipModel CreateShip(string shipType)
         {
             try
             {
-                ShipModel model = new ShipModel();              
+                if (shipType == null)
+                {
+                    throw new Exception("ShipType cannot be empty!!");
+                }
+                ShipModel model = new ShipModel();
 
                 if (shipType.ToLower() == Enum.GetName(typeof(ShipType), ShipType.Carrier).ToLower())
                 {
@@ -41,7 +51,7 @@ namespace BattleShip.Service.Ship
                 if (shipType.ToLower() == Enum.GetName(typeof(ShipType), ShipType.Destroyer).ToLower())
                 {
                     model.shipType = Enum.GetName(typeof(ShipType), ShipType.Destroyer);
-                    model.size = 3;
+                    model.size = 2;
                     return model;
 
                 }
@@ -67,9 +77,7 @@ namespace BattleShip.Service.Ship
         {
             try
             {
-                var shipDetails = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ship.json");
-                var ships = System.IO.File.ReadAllText(shipDetails);
-               
+                var ships = _fileService.GetFileContent("ship.json");
                 return JsonConvert.DeserializeObject<List<ShipModel>>(ships);
             }
 
@@ -85,6 +93,17 @@ namespace BattleShip.Service.Ship
         {
             try
             {
+                //if(shipOrientation.ToLower() != Enum.GetName(typeof(ShipOrientation),ShipOrientation.Horizontal) && shipOrientation != Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
+                //    {
+
+                //        throw new Exception("Ship Orientation can only be either Horizontal or vertical!!");
+
+                //}
+
+                if (!Enum.IsDefined(typeof(ShipOrientation), shipOrientation))
+                {
+                    throw new Exception("Ship Orientation can only be either Horizontal or vertical!!");
+                }
 
                 //here row and columns are cell where we want the ship to be positioned
 
@@ -96,16 +115,16 @@ namespace BattleShip.Service.Ship
 
                 if (shipOrientation.ToLower() == Enum.GetName(typeof(ShipOrientation), ShipOrientation.Vertical).ToLower())
                 {
-
+                    var guid = Guid.NewGuid();
                     for (int i = 0; i < ship.size; i++)
                     {
-                        var guid = new Guid();
+
                         var data = ListBoardModel.Where(x => x.Row == row + i && x.Column == column).FirstOrDefault();
                         {
                             data.Occupied = true;
                             ShipViewModel model = new ShipViewModel()
                             {
-                                BoardShipNumber= guid,
+                                BoardShipNumber = guid,
                                 Row = row + i,
                                 Column = column,
                                 Hit = false,
@@ -211,11 +230,6 @@ namespace BattleShip.Service.Ship
         {
             try
             {
-
-                if (model.Row > 10 || model.Column > 10)
-                {
-                    throw new IndexOutOfRangeException("Attack cannot be out of boards!!");
-                }
                 if (model.ShipInBoard == null)
                 {
                     return ShipAndBoardstatus.Miss;
@@ -224,14 +238,21 @@ namespace BattleShip.Service.Ship
                 {
                     throw new Exception("Boards must have occupied ships in them!!");
                 }
+                var boardShipNumber = model.ShipInBoard.Where(x => x.Row == model.Row & x.Column == model.Column).Select(x => x.BoardShipNumber).FirstOrDefault();
+                //var ShipInBoard = model.ShipInBoard.Where(x => x.BoardShipNumber == boardShipNumber).ToList();
+
                 var data = model.ShipInBoard.Where(x => x.Row == model.Row && x.Column == model.Column).FirstOrDefault();
                 if (data != null)
                 {
                     if (!data.Hit)
                     {
-                        data.Hit = true;
-                        var boardData = model.BoardCellList.Where(x => x.Row == model.Row && x.Column == model.Column).FirstOrDefault();
-                        boardData.Occupied = false;
+                        model.ShipInBoard.Where(x => x.Row == model.Row && x.Column == model.Column).FirstOrDefault(x => x.Hit = true);
+
+                        _fileService.SetFileContent("shipPlacement.json", JsonConvert.SerializeObject(model.ShipInBoard));
+
+                        model.BoardCellList.Where(x => x.Row == model.Row && x.Column == model.Column).FirstOrDefault(x => x.Occupied = false);
+
+                        _fileService.SetFileContent("board.json", JsonConvert.SerializeObject(model.BoardCellList));
 
                         if (model.BoardCellList.Where(x => x.Occupied == true).Count() == 0)
                         {
@@ -278,11 +299,9 @@ namespace BattleShip.Service.Ship
         }
         public List<ShipViewModel> GetPlacedShip()
         {
-            var shipPlacementDetails = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "shipPlacement.json");
-            var shipsAddedOnBoard = System.IO.File.ReadAllText(shipPlacementDetails);
+            var shipsAddedOnBoard = _fileService.GetFileContent("shipPlacement.json");
 
-            return JsonConvert.DeserializeObject<List<ShipViewModel>>(shipsAddedOnBoard); ;
-
+            return JsonConvert.DeserializeObject<List<ShipViewModel>>(shipsAddedOnBoard);
         }
     }
 }

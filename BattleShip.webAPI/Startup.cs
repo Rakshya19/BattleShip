@@ -1,4 +1,5 @@
 using BattleShip.Service.Board;
+using BattleShip.Service.File;
 using BattleShip.Service.Ship;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,8 +30,11 @@ namespace BattleShip.webAPI
         {
             services.AddControllers();
 
+            services.AddSwaggerDocument();
+
             services.AddTransient<IBoardService, BoardService>();
             services.AddTransient<IShipService, ShipService>();
+            services.AddTransient<IFileService, FileService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +50,9 @@ namespace BattleShip.webAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseEndpoints(endpoints =>
             {

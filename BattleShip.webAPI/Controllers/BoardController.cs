@@ -13,7 +13,7 @@ namespace BattleShip.webAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    
+
 
     public class BoardController : ControllerBase
     {
@@ -26,21 +26,19 @@ namespace BattleShip.webAPI.Controllers
             _config = config;
 
         }
-        [HttpGet]
-        
+        [HttpPost]
+
         public ActionResult CreateBoard()
         {
             int rows = _config.GetValue<int>("Rows");
             int columns = _config.GetValue<int>("Columns");
 
             var data = _boardService.CreateBoard(rows, columns);
-            var folderDetails = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "board.json");
-            //var JSON = System.IO.File.ReadAllText(folderDetails);
-            System.IO.File.WriteAllText(folderDetails, JsonConvert.SerializeObject(data));
+
 
             if (data != null)
             {
-               
+
                 var result = new { Result = data, Message = "Success!! Board is created with 10 rows and 10 columns" };
                 return Ok(result);
 
