@@ -1,10 +1,11 @@
 # BattleShip 
 
-This project is created in visual studio 2015 in MVC 5. Initially I build a .net core api as I had visual studio 2019 installed in my machine but the free version lisence expired in the mean time and I had to create another project. All the methods were tested on postman, so I did not create the unit test case. If required can be done shortly. 
+This project is created in visual studio 2019 community version. All the methods are tested on swagger.
 
 ## Create Board
-On page load it redirects to Board/CreateBoard which creates board with 10 rows and 10 columns.
-LocalUrl: http://localhost:4222/Board/CreateBoard
+Board is created with 10 rows and 10 columns
+LocalUrl:https://localhost:44398/swagger/index.html#/Board/Board_CreateBoard
+HostingUrl: http://rakshyabhattarai-001-site1.itempurl.com/swagger/index.html#/Board/Board_CreateBoard
 
 ## CreateShip
 CreateShip requires ShipType as parameter. It takes 5 ship types Carrier, BattleShip, Cruiser, Destroyer and Submarine.
