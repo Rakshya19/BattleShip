@@ -18,30 +18,21 @@ namespace BattleShip.webAPI.Controllers
     public class BoardController : ControllerBase
     {
         private readonly IBoardService _boardService;
-        private readonly IConfiguration _config;
 
-        public BoardController(IBoardService boardService, IConfiguration config)
+        public BoardController(IBoardService boardService)
         {
             _boardService = boardService;
-            _config = config;
 
         }
         [HttpPost]
 
         public ActionResult CreateBoard()
         {
-            int rows = _config.GetValue<int>("Rows");
-            int columns = _config.GetValue<int>("Columns");
-
-            var data = _boardService.CreateBoard(rows, columns);
-
-
+            var data = _boardService.CreateBoard();
             if (data != null)
             {
-
-                var result = new { Result = data, Message = "Success!! Board is created with 10 rows and 10 columns" };
+                var result = new { Message = "Success!! Board is created with 10 rows and 10 columns",Result = data };
                 return Ok(result);
-
             }
             else
             {

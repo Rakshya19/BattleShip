@@ -35,6 +35,7 @@ namespace BattleShip.webAPI
             services.AddTransient<IBoardService, BoardService>();
             services.AddTransient<IShipService, ShipService>();
             services.AddTransient<IFileService, FileService>();
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

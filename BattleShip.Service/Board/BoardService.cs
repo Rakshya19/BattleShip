@@ -1,5 +1,6 @@
 ﻿using BattleShip.Model.Model;
 using BattleShip.Service.File;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,16 +12,20 @@ namespace BattleShip.Service.Board
     public class BoardService : IBoardService
     {
         private readonly IFileService _fileService;
-        public BoardService(IFileService fileService)
+        private readonly IConfiguration _config;
+        public BoardService(IFileService fileService, IConfiguration config)
         {
             _fileService = fileService;
+            _config = config;
         }
 
-        public List<BoardModel> CreateBoard(int rows, int columns)
+        public List<BoardModel> CreateBoard()
         {
 
             try
             {
+                int rows = _config.GetValue<int>("Rows");
+                int columns = _config.GetValue<int>("Columns");
 
                 List<BoardModel> boardModelList = new List<BoardModel>();
 
@@ -41,17 +46,15 @@ namespace BattleShip.Service.Board
                 _fileService.SetFileContent("board.json", JsonConvert.SerializeObject(boardModelList));
 
                 return boardModelList;
-
-
             }
 
             catch (Exception ex)
             {
                 throw new Exception("Sorry!! Error has encountered while creating the board: " + ex.Message);
             }
-
-
         }
+
+
         public List<BoardModel> GetBoard()
         {
             try
