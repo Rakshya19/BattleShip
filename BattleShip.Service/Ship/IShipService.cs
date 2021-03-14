@@ -10,8 +10,8 @@ namespace BattleShip.Service.Ship
 
     {
         ShipModel CreateShip(string shipType);
-        BoardShipViewModel PlaceShipInBoard(ShipModel ship, string shipOrientation, int row, int column, List<BoardModel> ListBoardModel);
-        ShipAndBoardstatus AttackShip(AttackShipRequestModel model);
+        BoardShipViewModel PlaceShipInBoard(ShipPlacementRequestModel shipPlacementModel);
+        ShipAndBoardstatus AttackShip(Dimensions model);
         List<ShipModel> GetShipList();
         List<ShipViewModel> GetPlacedShip();
     }
