@@ -51,8 +51,12 @@ Parameters:
     }
     
 ## Packages
+
 We might need to install some packages for the program to rum if it is not already installed.
---> Microsoft.Extensions.Configuration.Abstraction(5.0.0)
---> Microsoft.Extensions.Configuration.Binder(5.0.0)
---> NSwag.AspNetCore(13.10.8)
+
+--> Microsoft.Extensions.Configuration.Abstraction(5.0.0)(BattleShip.Service)
+
+--> Microsoft.Extensions.Configuration.Binder(5.0.0)(BattleShip.Service)
+
+--> NSwag.AspNetCore(13.10.8)(BattleShip.webAPI)
 
