@@ -9,34 +9,34 @@ namespace BattleShip.Model.Enum
     {
         public enum ShipType
         {
-            [Description("Carrier")]
-            Carrier,
-            [Description("BattleShip")]
-            BattleShip,
-            [Description("Cruiser")]
-            Cruiser,
-            [Description("Destroyer")]
-            Destroyer,
-            [Description("Submarine")]
-            Submarine,
+            [Description("carrier")]
+            carrier,
+            [Description("battleship")]
+            battleship,
+            [Description("cruiser")]
+            cruiser,
+            [Description("destroyer")]
+            destroyer,
+            [Description("submarine")]
+            submarine,
         }
         public enum ShipOrientation
         {
-            [Description("Horizontal")]
-            Horizontal,
-            [Description("Vertical")]
-            Vertical
+            [Description("horizontal")]
+            horizontal,
+            [Description("vertical")]
+            vertical
         }
 
         public enum ShipAndBoardstatus
         {
-            [Description("Hit")]
+            [Description("hit")]
             Hit,
-            [Description("Miss")]
+            [Description("miss")]
             Miss,
-            [Description("Ship is Sunk")]
+            [Description("ship is sunk")]
             ShipSunk,
-            [Description("Game Over")]
+            [Description("game over")]
             GameOver
 
         }
