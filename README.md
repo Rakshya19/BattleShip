@@ -27,14 +27,15 @@ LocalUrl: https://localhost:44398/swagger/index.html#/Ship/Ship_PlaceShipInBoard
 HostingUrl: http://rakshyabhattarai-001-site1.itempurl.com/swagger/index.html#/Ship/Ship_PlaceShipInBoard
 
 Paameters: 
-{
-  "row": 0,
-  "column": 0,
-  "shipType": "string",
-  "shipOrientation": "string"
-}
 
-## AttackShip (this is for hit, miss, sunk or game over)
+    {
+     "row": 0,
+      "column": 0,
+     "shipType": "string",
+      "shipOrientation": "string"
+    }
+
+## AttackShip 
 
 Attacking Ship takes attack row, column as a parameter. 
 
@@ -44,8 +45,14 @@ HostingUrl: http://rakshyabhattarai-001-site1.itempurl.com/swagger/index.html#/S
 
 Parameters:
 
-{
-  "row": 0,
-  "column": 0
-}
+    {
+     "row": 0,
+     "column": 0
+    }
+    
+## Packages
+We might need to install some packages for the program to rum if it is not already installed.
+--> Microsoft.Extensions.Configuration.Abstraction(5.0.0)
+--> Microsoft.Extensions.Configuration.Binder(5.0.0)
+--> NSwag.AspNetCore(13.10.8)
 
