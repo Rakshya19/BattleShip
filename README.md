@@ -1,297 +1,51 @@
 # BattleShip 
 
-This project is created in visual studio 2019 community version. All the methods are tested on swagger.
+This project is created in visual studio 2019 community version. All the methods are tested on swagger. Internally data are saved on json file and are made empty on runtime.So, clearing cache might be required sometime for the new test.
 
 ## Create Board
-Board is created with 10 rows and 10 columns
+
+Board is created with 10 rows and 10 columns. This value of row and column is saved on appsettings.json to avoid hard coading. The raw data is saved on board.json 
+
 LocalUrl:https://localhost:44398/swagger/index.html#/Board/Board_CreateBoard
+
 HostingUrl: http://rakshyabhattarai-001-site1.itempurl.com/swagger/index.html#/Board/Board_CreateBoard
 
 ## CreateShip
-CreateShip requires ShipType as parameter. It takes 5 ship types Carrier, BattleShip, Cruiser, Destroyer and Submarine.
-LocalUrl: http://localhost:4222/Ship/CreateShip?shipType=Carrier
+
+CreateShip requires ShipType as parameter. It takes 5 ship types Carrier, BattleShip, Cruiser, Destroyer and Submarine. DAta is saved on ship.json
+
+LocalUrl:https://localhost:44398/swagger/index.html#/Ship/Ship_CreateShip
+
+http://rakshyabhattarai-001-site1.itempurl.com/swagger/index.html#/Ship/Ship_CreateShip
 
 ## PlaceShipInBoard
 
-While placing ship to board we must pass shipType,shipOrientation which is either Horizontal or vertical,  ShipStartingRow which is default 1 , ShipStartingColumn is also default 1.
+While placing ship to board we must pass shipType,shipOrientation which is either Horizontal or vertical, and starting which row column we want to place the ship. Data is saved on shipPlacement.json
 
-LocalUrl: http://localhost:4222/Ship/PlaceShipInBoard?shipType=carrier&shipOrientation=vertical&shipRow=6&shipColumn=10
+LocalUrl: https://localhost:44398/swagger/index.html#/Ship/Ship_PlaceShipInBoard
 
-## Attack one ship on board
-AttackOneShipOnBoard takes shipType,shipOrientation,shipRow,shipColumn,attackRow, attakColumn. Here board is created then ship is created and ship is placed on ship row and column and than attack is done in the attack row and column. this is a simple api to attack a ship which can give hit or miss.
+HostingUrl: http://rakshyabhattarai-001-site1.itempurl.com/swagger/index.html#/Ship/Ship_PlaceShipInBoard
 
-LocalUrl:http://localhost:4222/Ship/AttackOneShipOnBoard?shipType=Cruiser&shipOrientation=Vertical&shipRow=3&shipColumn=5&AttackRow=5&attackColumn=5
+Paameters: 
+{
+  "row": 0,
+  "column": 0,
+  "shipType": "string",
+  "shipOrientation": "string"
+}
 
 ## AttackShip (this is for hit, miss, sunk or game over)
-Attacking Ship takes attack row, column, list of cells of board which are occupied, all shipcells where the particular ship is placed. This shipcell parameter is passed if the attacked cell has ship in it otherwise empty must be passed. We check for if it is empty. If empty then it is a Miss. If not than hit. If all ship cells list is hit then we say it is sunk. If the board occupied list is empty after it is hit then game is over. Passing parameter to attack ship is quiet tricky which I have explained below.
 
-LocalUrl:http://localhost:4222/Ship/AttackShip
+Attacking Ship takes attack row, column as a parameter. 
 
-Parameter:
-check for miss attack. (here ship in board will not have any data as that attack row and column provided has no ship)
+LocalUrl : https://localhost:44398/swagger/index.html#/Ship/Ship_AttackShip
 
-    {
-    "attackRow":5,
-    "attackColumn":5,
-    
-        "boardCellList": [
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 6
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 7
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 8
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 9
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 10
-            }]
-        ,
-        "shipInBoard": []
-           
-         }
+HostingUrl: http://rakshyabhattarai-001-site1.itempurl.com/swagger/index.html#/Ship/Ship_AttackShip
 
-This is a hit attack
+Parameters:
 
-    {
-    "attackRow":2,
-    "attackColumn":3,
-    
-        "boardCellList": [
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 6
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 7
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 8
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 9
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 10
-            },
-           
-            {
-                "Occupied": true,
-                "Row": 1,
-                "Column": 3
-            },
-            {
-                "Occupied": true,
-                "Row": 2,
-                "Column": 3
-            },
-            {
-                "Occupied": true,
-                "Row": 3,
-                "Column": 3
-            },
-            {
-                "Occupied": true,
-                "Row": 4,
-                "Column": 3
-            }
-            ]
-        ,
-        "shipInBoard": [
-        	 {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": false,
-                "Row": 1,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": false,
-                "Row": 2,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": false,
-                "Row": 3,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "Carrier",
-                "Hit": false,
-                "Row": 4,
-                "Column": 3
-            }
-            ]
-        }
-
-There is only one cell occupied by ship in board which we attack now and that cell is hit than the game is over.
-
-    {
-    "attackRow":1,
-    "attackColumn":3,
-    
-        "boardCellList": [
-   
-           
-            {
-                "Occupied": true,
-                "Row": 1,
-                "Column": 3
-            }]
-        ,
-        "shipInBoard": [
-        	 {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": false,
-                "Row": 1,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": true,
-                "Row": 2,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": true,
-                "Row": 3,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "Carrier",
-                "Hit": true,
-                "Row": 4,
-                "Column": 3
-            }
-            ]
-         }
-
-Now I am targeting for attack row 2 column 3 and all other cells of this ship has already been hit. So the ship sinks in this case.
-
-      {
-        "attackRow":2,
-         "attackColumn":3,
-    
-        "boardCellList": [
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 6
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 7
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 8
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 9
-            },
-            {
-                "Occupied": true,
-                "Row": 10,
-                "Column": 10
-            },
-           
-            {
-                "Occupied": true,
-                "Row": 1,
-                "Column": 3
-            },
-            {
-                "Occupied": true,
-                "Row": 2,
-                "Column": 3
-            },
-            {
-                "Occupied": true,
-                "Row": 3,
-                "Column": 3
-            },
-            {
-                "Occupied": true,
-                "Row": 4,
-                "Column": 3
-            }
-            ]
-        ,
-        "shipInBoard": [
-        	 {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": true,
-                "Row": 1,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": false,
-                "Row": 2,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "BattleShip",
-                "Hit": true,
-                "Row": 3,
-                "Column": 3
-            },
-            {
-                "BoardShipNumber": 0,
-                "ShipType": "Carrier",
-                "Hit": true,
-                "Row": 4,
-                "Column": 3
-            }
-            ]
-         }
-   
-   
-   
-   
-   
-   
-   
-   
-
+{
+  "row": 0,
+  "column": 0
+}
 
