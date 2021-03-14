@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BattleShip.Model.Model
 {
-    public class ShipModel
+    public class ShipModel:ErrorModel
     {
         public string shipType { get; set; }
         public int size { get; set; }

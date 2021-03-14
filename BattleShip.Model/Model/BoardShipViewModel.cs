@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BattleShip.Model.Model
 {
-    public class BoardShipViewModel
+    public class BoardShipViewModel:ErrorModel
     {
         public List<BoardModel> ListBoardModel { get; set; }
         public List<ShipViewModel> ListShipViewModel { get; set; }

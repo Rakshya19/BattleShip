@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BattleShip.Model.Model
 {
-    public class MessageModel
+    public class ErrorModel
     {
         public string Message { get; set; }
     }

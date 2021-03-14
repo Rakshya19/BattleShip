@@ -11,7 +11,7 @@ namespace BattleShip.Service.Ship
     {
         ShipModel CreateShip(string shipType);
         BoardShipViewModel PlaceShipInBoard(ShipPlacementRequestModel shipPlacementModel);
-        ShipAndBoardstatus AttackShip(Dimensions model);
+        ShipBoardStatusModel AttackShip(Dimensions model);
         List<ShipModel> GetShipList();
         List<ShipViewModel> GetPlacedShip();
     }

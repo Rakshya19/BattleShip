@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BattleShip.Model.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
 namespace BattleShip.Model.Enum
 {
-    public class Enum
+    public class Enum:ErrorModel
     {
         public enum ShipType
         {

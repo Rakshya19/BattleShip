@@ -36,10 +36,13 @@ namespace BattleShip.webAPI.Controllers
         {
             var ship = _shipService.CreateShip(shipType);
 
+            if(!string.IsNullOrEmpty(ship.Message))
+            {
+                return BadRequest(ship.Message);
+            }
             if (ship != null)
             {
                 var result = new { Message = "Ship is created Successfully", Result = ship };
-
                 return Ok(result);
             }
             else
@@ -51,8 +54,12 @@ namespace BattleShip.webAPI.Controllers
         [HttpPost]
         public ActionResult PlaceShipInBoard([FromBody] ShipPlacementRequestModel model)
         { 
-            var shipAddedOnBoard = _shipService.PlaceShipInBoard(model);          
-
+            var shipAddedOnBoard = _shipService.PlaceShipInBoard(model); 
+            
+            if(!string.IsNullOrEmpty(shipAddedOnBoard.Message))
+            {
+                return BadRequest(shipAddedOnBoard.Message);
+            }
             if (shipAddedOnBoard != null)
             {
                 var result = new { Message = "Ship is successfully added to the board",Result = shipAddedOnBoard  };
@@ -71,7 +78,12 @@ namespace BattleShip.webAPI.Controllers
         {
 
             var data = _shipService.AttackShip(model);
-            var result = Enum.GetName(typeof(ShipAndBoardstatus), data);
+
+            if (data.errorModel!=null)
+            {
+                return BadRequest(data.errorModel.Message);
+            }
+            var result = Enum.GetName(typeof(ShipAndBoardstatus), data.shipAndBoardstatus);
 
 
             return Ok(result);
