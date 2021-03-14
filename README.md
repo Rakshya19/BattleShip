@@ -1,6 +1,6 @@
 # BattleShip 
 
-This project is created in visual studio 2019 community version. All the methods are tested on swagger. Internally data are saved on json file and are made empty on runtime.
+This project is created in visual studio 2019 community version. All the methods are tested on swagger. Internally data are saved on json file and are made empty on runtime.So, clearing cache might be required sometime for the new test.
 
 ## Create Board
 
